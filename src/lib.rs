@@ -63,7 +63,7 @@ fn struct_layout(input: TokenStream2) -> TokenStream2 {
     quote! {
         #[doc=#usage_msg]
         pub struct #layout_struct #ty_generics { #(#phantom_ident: core::marker::PhantomData<#phantom_generic>),*}
-        
+
         impl #impl_generics #layout_struct #ty_generics #where_clause {
             #(pub  fn #layout_ident()->core::ops::Range<usize> { #layout_offset_prev..#layout_offset_after})*
         }
